@@ -30,10 +30,42 @@ public:
 	T& get(int pos) const {
 		return m_values[pos];
 	}
+
+	iterator begin() {
+		return iterator(0, *this);
+	}
+
+	iterator end() {
+		return iterator(m_size, *this);
+	}
 };
 
 template <class T>
 class ring<T>::iterator {
+private:
+	int m_pos;
+	ring& m_ring;
 public:
-	void print() { std::cout << "it " << std::endl; }
+	iterator(int pos, ring& aRing): m_pos(pos), m_ring(aRing) {
+
+	}
+
+	iterator& operator++(int) {
+		m_pos++;
+		return *this;
+	}
+
+	iterator& operator++() {
+		m_pos++;
+		return *this;
+	}
+
+	T& operator*()
+	{
+		return m_ring.get(m_pos);
+	}
+
+	bool operator !=(const iterator& other) const {
+		return m_pos != other.m_pos;
+	}
 };

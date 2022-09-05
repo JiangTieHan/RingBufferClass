@@ -14,8 +14,9 @@ int main() {
 		std::cout << textring.get(i) << std::endl;
 	}
 
-	ring<std::string>::iterator it;
-	it.print();
-
+	for (ring<std::string>::iterator it = textring.begin(); it != textring.end(); it++)
+	{
+		std::cout << *it << std::endl;
+	}
 	return 0;
 }
