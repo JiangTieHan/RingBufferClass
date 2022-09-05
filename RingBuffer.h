@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 // circular array
 template <class T>
