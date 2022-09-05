@@ -13,10 +13,18 @@ int main() {
 	{
 		std::cout << textring.get(i) << std::endl;
 	}
+	std::cout << std::endl;
 
 	for (ring<std::string>::iterator it = textring.begin(); it != textring.end(); it++)
 	{
 		std::cout << *it << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	for (const std::string& s : textring)
+	{
+		std::cout << s << std::endl;
 	}
 	return 0;
 }
